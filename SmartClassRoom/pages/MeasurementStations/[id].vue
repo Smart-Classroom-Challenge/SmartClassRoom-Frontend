@@ -35,6 +35,6 @@ export default {
 
 <template>
   <div>
-    <h1>{{ Stations.url }}</h1>
+    <h1>{{ Stations.url || 'Loading...' }}</h1>
   </div>
 </template>
