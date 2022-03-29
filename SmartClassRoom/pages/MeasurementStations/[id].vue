@@ -2,25 +2,22 @@
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { useStore } from '~/stores/user'
-const store = useStore()
-
 // router get props
 export default {
   setup() {
+    const store = useStore()
     const Stations = ref({})
-
-    const getStations = (param: any) => {
-      fetch(`http://localhost:8000/api/MeasurementStations/${param}`, {headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${store.jwt}`}})
-        .then(res => res.json())
-        .then((data) => {
-          debugger;
-          Stations.value = data
-        })
-        .catch((err) => {
-          debugger;
-          console.log(err)
-        })
-      // Flag.value = result
+    async function getStations(id: any) {
+      const response = await fetch(`http://localhost:8000/api/MeasurementStations/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${store.set_jwt}`
+    },
+  })  
+      const data = await response.json()
+      Stations.value = data
+      debugger;
     }
 
     onMounted(() => {
@@ -37,6 +34,6 @@ export default {
 
 <template>
   <div>
-    <h1>Hello World</h1>
+    <h1>{{Stations.url}}</h1>
   </div>
 </template>

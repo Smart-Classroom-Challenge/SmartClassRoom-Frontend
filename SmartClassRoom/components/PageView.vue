@@ -2,10 +2,13 @@
 import { useStore } from '~/stores/user'
 const router = useRouter()
 const store = useStore()
-const IotDevices = await fetch(`http://localhost:8000/api/Classrooms/`, {headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${store.jwt}`}}).then((r) => r.json()).then((data) => data.results);
+debugger
+
+const IotDevices = await fetch(`http://localhost:8000/api/Classrooms/`, {headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${store.set_jwt}`}}).then((r) => r.json()).then((data) => data.results);
 function goToMessurmentStatitons(id:bigint){
     router.push(`/MeasurementStations/${id}`)
 } 
+
 
 </script>
 

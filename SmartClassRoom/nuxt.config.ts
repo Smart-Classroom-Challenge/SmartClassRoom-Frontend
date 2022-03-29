@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   },
   buildModules: [
     '@vueuse/nuxt',
-    '@pinia/nuxt',
     'unplugin-icons/nuxt',
+    '@pinia/nuxt',
   ],
   publicRuntimeConfig: {
     url_api: process.env.URL_API,
