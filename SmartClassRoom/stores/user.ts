@@ -4,6 +4,7 @@ export const useStore = defineStore("main", {
   state: () => ({
     jwt: "",
     jwt_refresh: "",
+    search: "",
   }),
   getters: {
     // automatically infers the return type as a number
@@ -16,7 +17,7 @@ export const useStore = defineStore("main", {
   },
   actions: {
     set_jwt(token) {
-      this.state.jwt = token;
+      this.jwt = token;
     },
     set_rjwt(token) {
       this.jwt_refresh = token;

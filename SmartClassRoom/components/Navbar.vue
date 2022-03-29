@@ -35,7 +35,7 @@
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <SearchIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
                   </div>
-                  <input id="search" name="search" class="block w-full py-2 pl-10 pr-3 text-sm placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search" type="search" />
+                  <input v-model="store.search" id="search" name="search" class="block w-full py-2 pl-10 pr-3 text-sm placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Search" type="search" />
                 </div>
               </div>
             </div>
@@ -70,7 +70,6 @@
                 </MenuItems>
               </transition>
             </Menu>
-
             <a href="#" class="inline-flex items-center px-4 py-2 ml-6 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"> New Classroom </a>
           </div>
         </div>
@@ -107,6 +106,8 @@
 import { Menu, MenuButton, MenuItem, MenuItems, Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import { SearchIcon } from '@heroicons/vue/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { useStore } from '~/stores/user'
+
 
 const user = {
   name: 'Chelsea Hagon',
@@ -141,10 +142,12 @@ export default {
     XIcon,
   },
   setup() {
+    const store = useStore()
     return {
       user,
       navigation,
       userNavigation,
+      store,
     }
   },
 }
