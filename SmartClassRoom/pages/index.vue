@@ -1,14 +1,12 @@
 <template>
-  <div class="py-20 px-10 text-center">
-    <Logos class="mb-6" />
+  <div class="px-10 text-center">
     <Suspense>
       <PageView />
       <template #fallback>
-        <div class="opacity-50 italic">
+        <div class="italic opacity-50">
           <span class="pulse">Loading...</span>
         </div>
       </template>
     </Suspense>
-    <InputEntry />
   </div>
 </template>

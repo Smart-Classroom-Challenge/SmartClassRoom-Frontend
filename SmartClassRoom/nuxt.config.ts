@@ -12,6 +12,9 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'unplugin-icons/nuxt',
   ],
+  publicRuntimeConfig: {
+    url_api: process.env.URL_API,
+  },
   components: true,
   vite: {
     plugins: [
