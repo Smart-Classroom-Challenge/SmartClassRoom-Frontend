@@ -5,6 +5,10 @@ export const useStore = defineStore("main", {
     jwt: "",
     jwt_refresh: "",
     search: "",
+    show: false,
+    showm: false,
+    Classrooms: true,
+    Measurements: false,
   }),
   getters: {
     // automatically infers the return type as a number

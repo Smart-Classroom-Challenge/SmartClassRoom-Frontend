@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useStore } from "~/stores/user";
+import ActionInput1 from "./ActionInput.vue";
 const router = useRouter();
 const store = useStore();
 debugger;
@@ -34,6 +35,7 @@ const searchedIotDevices = computed(() => {
 
 <template>
   <div>
+    <ActionInput></ActionInput>
     <h1 class="pt-2 text-4xl title">Classrooms</h1>
     <div class="container px-4 mx-auto my-12 md:px-12">
       <div class="flex flex-wrap -mx-1 lg:-mx-4">

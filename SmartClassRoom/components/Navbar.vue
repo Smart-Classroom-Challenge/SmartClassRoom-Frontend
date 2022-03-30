@@ -14,6 +14,88 @@
   }
   ```
 -->
+
+<script lang="ts">
+import { Menu, MenuButton, MenuItem, MenuItems, Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+import { SearchIcon } from '@heroicons/vue/solid'
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { useStore } from '~/stores/user'
+import { useRoute } from 'vue-router'
+
+
+const user = {
+  name: 'Chelsea Hagon',
+  email: 'chelsea.hagon@example.com',
+  imageUrl:
+    'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+}
+const navigation = [
+  { name: 'Dashboard', href: '#', current: true },
+  { name: 'Calendar', href: '#', current: false },
+  { name: 'Teams', href: '#', current: false },
+  { name: 'Directory', href: '#', current: false },
+]
+const userNavigation = [
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
+]
+
+export default {
+  components: {
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
+    BellIcon,
+    MenuIcon,
+    SearchIcon,
+    XIcon,
+  },
+  setup() {
+    const router = useRouter();
+    const route = useRoute()
+    const store = useStore()
+        debugger;
+    const id = route.params.id;
+    function home() {
+      router.push('/')
+    }
+    function NewMeasurmentStation() {
+      store.showm = true;
+    }
+    function NewClassroom() {
+      debugger;
+      store.show = true;
+    }
+    router.beforeEach((to, from) => {
+      debugger;
+      if (to.fullPath.startsWith('/MeasurementStations/')) {
+        store.Classrooms = false;
+        store.Measurements = true;
+      } else {
+        store.Classrooms = true
+        store.Measurements = false;
+      }
+    })
+    return {
+      id,
+      home,
+      NewClassroom,
+      NewMeasurmentStation,
+      user,
+      navigation,
+      userNavigation,
+      store,
+    }
+  },
+}
+</script>
+
+
 <template>
   <!-- When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars -->
   <Popover as="template" v-slot="{ open }">
@@ -23,7 +105,8 @@
           <div class="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
             <div class="flex items-center flex-shrink-0">
               <a href="#">
-                <img class="block w-auto h-8" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="Workflow" />
+                <img @click="home()" class="block w-auto h-8" src="~/assets/FHNW.png" alt="Workflow" />
+                
               </a>
             </div>
           </div>
@@ -70,7 +153,8 @@
                 </MenuItems>
               </transition>
             </Menu>
-            <a href="#" class="inline-flex items-center px-4 py-2 ml-6 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"> New Classroom </a>
+            <a v-if="store.Classrooms" @click="NewClassroom()" class="inline-flex items-center px-4 py-2 ml-6 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"> New Classroom </a>
+            <a v-if="store.Measurements" @click="NewMeasurmentStation()" class="inline-flex items-center px-4 py-2 ml-6 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"> New Station </a>
           </div>
         </div>
       </div>
@@ -101,54 +185,3 @@
     </header>
   </Popover>
 </template>
-
-<script>
-import { Menu, MenuButton, MenuItem, MenuItems, Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-import { SearchIcon } from '@heroicons/vue/solid'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-import { useStore } from '~/stores/user'
-
-
-const user = {
-  name: 'Chelsea Hagon',
-  email: 'chelsea.hagon@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Teams', href: '#', current: false },
-  { name: 'Directory', href: '#', current: false },
-]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
-
-export default {
-  components: {
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    Popover,
-    PopoverButton,
-    PopoverPanel,
-    BellIcon,
-    MenuIcon,
-    SearchIcon,
-    XIcon,
-  },
-  setup() {
-    const store = useStore()
-    return {
-      user,
-      navigation,
-      userNavigation,
-      store,
-    }
-  },
-}
-</script>
