@@ -71,7 +71,7 @@ async function signin(email, password) {
       <p class="mt-2 text-sm text-center text-gray-600">
         Or
         {{ " " }}
-        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+        <a  class="font-medium text-indigo-600 hover:text-indigo-500">
           start your 14-day free trial
         </a>
       </p>

@@ -95,7 +95,7 @@ export default {
         <div class="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
           <div class="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
             <div class="flex items-center flex-shrink-0">
-              <a href="#">
+              <a >
                 <img @click="home()" class="block w-auto h-8" src="~/assets/FHNW.png" alt="Workflow" />
                 
               </a>
@@ -123,7 +123,7 @@ export default {
             </PopoverButton>
           </div>
           <div class="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-            <a href="#" class="flex-shrink-0 p-1 ml-5 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <a  class="flex-shrink-0 p-1 ml-5 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span class="sr-only">View notifications</span>
               <BellIcon class="w-6 h-6" aria-hidden="true" />
             </a>
