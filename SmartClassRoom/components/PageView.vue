@@ -14,9 +14,18 @@ const IotDevices = await fetch(`http://localhost:8000/api/Classrooms/`, {
 function goToMessurmentStatitons(id: bigint) {
   router.push(`/MeasurementStations/${id}`);
 }
+
+const searchedIotDevices = computed(() => {
+  return IotDevices.filter((product) => {
+    return (
+      product.description.toLowerCase().indexOf(store.search.toLowerCase()) !=
+      -1
+    );
+  });
+});
 function goToAllStations() {
-    debugger;
-    router.push(`/MeasurementStations/all`);
+  debugger;
+  router.push(`/MeasurementStations/all`);
 }
 </script>
 
@@ -26,16 +35,14 @@ function goToAllStations() {
     <h1 class="pt-2 text-4xl title">Classrooms</h1>
     <div class="container px-4 mx-auto my-12 md:px-12">
       <div class="flex flex-wrap -mx-1 lg:-mx-4">
-      <!-- Column -->
-        <div
-          class="w-full px-1 my-5 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
-        >
+        <!-- Column -->
+        <div class="w-full px-1 my-5 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <!-- Article -->
           <article
             @click="goToAllStations()"
             class="overflow-hidden rounded-lg shadow-lg"
           >
-            <a >
+            <a>
               <img
                 alt="Placeholder"
                 class="block w-full h-auto"
@@ -47,8 +54,8 @@ function goToAllStations() {
               class="flex items-center justify-between p-2 leading-tight md:p-4"
             >
               <h1 class="text-lg">
-                <a class="text-black no-underline hover:underline" >
-                    All Stations
+                <a class="text-black no-underline hover:underline">
+                  All Stations
                 </a>
               </h1>
               <p class="text-sm text-grey-darker"></p>
@@ -59,13 +66,10 @@ function goToAllStations() {
             >
               <a
                 class="flex items-center text-black no-underline hover:underline"
-                
               >
-                <p class="ml-2 text-sm">XX</p>
+                <p class="ml-2 text-sm">Show all Measurement Stations</p>
               </a>
-              <a
-                class="no-underline text-grey-darker hover:text-red-dark"
-              >
+              <a class="no-underline text-grey-darker hover:text-red-dark">
                 <span class="hidden">Like</span>
                 <i class="fa fa-heart"></i>
               </a>
@@ -75,7 +79,7 @@ function goToAllStations() {
         </div>
         <!-- Column -->
         <div
-          v-for="file in IotDevices"
+          v-for="file in searchedIotDevices"
           :key="file.source"
           class="w-full px-1 my-5 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
         >
@@ -84,7 +88,7 @@ function goToAllStations() {
             @click="goToMessurmentStatitons(file.id)"
             class="overflow-hidden rounded-lg shadow-lg"
           >
-            <a >
+            <a>
               <img
                 alt="Placeholder"
                 class="block w-full h-auto"
@@ -96,7 +100,7 @@ function goToAllStations() {
               class="flex items-center justify-between p-2 leading-tight md:p-4"
             >
               <h1 class="text-lg">
-                <a class="text-black no-underline hover:underline" >
+                <a class="text-black no-underline hover:underline">
                   {{ file.description }}
                 </a>
               </h1>
@@ -108,14 +112,10 @@ function goToAllStations() {
             >
               <a
                 class="flex items-center text-black no-underline hover:underline"
-                
               >
                 <p class="ml-2 text-sm">Room Number: {{ file.room_number }}</p>
               </a>
-              <a
-                class="no-underline text-grey-darker hover:text-red-dark"
-                
-              >
+              <a class="no-underline text-grey-darker hover:text-red-dark">
                 <span class="hidden">Like</span>
                 <i class="fa fa-heart"></i>
               </a>
