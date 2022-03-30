@@ -18,17 +18,6 @@ function goToAllStations() {
     debugger;
     router.push(`/MeasurementStations/all`);
 }
-
-const searchedIotDevices = computed(() => {
-      return IotDevices.filter((product) => {
-        return (
-          product.description
-            .toLowerCase()
-            .indexOf(store.search.toLowerCase()) != -1
-        );
-      });
-    });
-
 </script>
 
 <template>
@@ -87,7 +76,7 @@ const searchedIotDevices = computed(() => {
         </div>
         <!-- Column -->
         <div
-          v-for="file in searchedIotDevices"
+          v-for="file in IotDevices"
           :key="file.source"
           class="w-full px-1 my-5 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
         >
