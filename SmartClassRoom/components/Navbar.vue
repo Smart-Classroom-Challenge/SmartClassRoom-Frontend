@@ -59,12 +59,12 @@ export default {
     const router = useRouter();
     const route = useRoute()
     const store = useStore()
-        debugger;
     const id = route.params.id;
     function home() {
       router.push('/')
     }
     function NewMeasurmentStation() {
+      debugger;
       store.showm = true;
     }
     function NewClassroom() {

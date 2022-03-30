@@ -52,6 +52,7 @@ export default {
 
 <template>
   <div>
+    <ActionInputM></ActionInputM>
     <h1 class="pt-2 text-4xl title">Measurement Stations</h1>
     <div class="container px-4 mx-auto my-12 md:px-12">
       <div class="flex flex-wrap -mx-1 lg:-mx-4">

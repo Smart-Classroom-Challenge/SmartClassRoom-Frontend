@@ -9,7 +9,7 @@
             <div class="px-6 py-4 text-left modal-content">
 
                 <div class="flex items-center justify-center pb-3">
-                    <p class="text-2xl font-bold text-center">Add Measurement Stations</p>
+                    <p class="text-2xl font-bold text-center">Measurement Stations</p>
                 </div>
 
                 <div class="mt-6">
@@ -40,7 +40,7 @@
                     <div class="mt-6 ">
                         <button type="submit"   class="flex items-center justify-center w-full px-6 py-2 text-sm font-medium text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none">
                         
-                        <span class="m-2 text-white" @click="create_classroom(Room_name, Room_desc, Room_number)">Add Classroom</span>
+                        <span class="m-2 text-white" @click="create_classroom(Room_name, Room_desc, Room_number)">Add Measurement Station</span>
                         
                     </button>
                     </div>

@@ -35,6 +35,7 @@ export default {
 
 <template>
   <div>
+    <ActionInputM></ActionInputM>
     <h1>{{ Stations.url || 'Loading...' }}</h1>
   </div>
 </template>
