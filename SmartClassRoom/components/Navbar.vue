@@ -71,16 +71,7 @@ export default {
       debugger;
       store.show = true;
     }
-    router.beforeEach((to, from) => {
-      debugger;
-      if (to.fullPath.startsWith('/MeasurementStations/')) {
-        store.Classrooms = false;
-        store.Measurements = true;
-      } else {
-        store.Classrooms = true
-        store.Measurements = false;
-      }
-    })
+    
     return {
       id,
       home,

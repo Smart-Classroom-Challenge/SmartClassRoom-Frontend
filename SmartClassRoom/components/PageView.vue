@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { useStore } from "~/stores/user";
-import ActionInput1 from "./ActionInput.vue";
 const router = useRouter();
 const store = useStore();
 debugger;
-
 const IotDevices = await fetch(`http://localhost:8000/api/Classrooms/`, {
   headers: {
     "Content-Type": "application/json",
