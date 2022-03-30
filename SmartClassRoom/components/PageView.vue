@@ -35,7 +35,7 @@ function goToAllStations() {
             @click="goToAllStations()"
             class="overflow-hidden rounded-lg shadow-lg"
           >
-            <a href="#">
+            <a >
               <img
                 alt="Placeholder"
                 class="block w-full h-auto"
@@ -47,7 +47,7 @@ function goToAllStations() {
               class="flex items-center justify-between p-2 leading-tight md:p-4"
             >
               <h1 class="text-lg">
-                <a class="text-black no-underline hover:underline" href="#">
+                <a class="text-black no-underline hover:underline" >
                     All Stations
                 </a>
               </h1>
@@ -59,13 +59,12 @@ function goToAllStations() {
             >
               <a
                 class="flex items-center text-black no-underline hover:underline"
-                href="#"
+                
               >
                 <p class="ml-2 text-sm">XX</p>
               </a>
               <a
                 class="no-underline text-grey-darker hover:text-red-dark"
-                href="#"
               >
                 <span class="hidden">Like</span>
                 <i class="fa fa-heart"></i>
@@ -85,7 +84,7 @@ function goToAllStations() {
             @click="goToMessurmentStatitons(file.id)"
             class="overflow-hidden rounded-lg shadow-lg"
           >
-            <a href="#">
+            <a >
               <img
                 alt="Placeholder"
                 class="block w-full h-auto"
@@ -97,7 +96,7 @@ function goToAllStations() {
               class="flex items-center justify-between p-2 leading-tight md:p-4"
             >
               <h1 class="text-lg">
-                <a class="text-black no-underline hover:underline" href="#">
+                <a class="text-black no-underline hover:underline" >
                   {{ file.description }}
                 </a>
               </h1>
@@ -109,13 +108,13 @@ function goToAllStations() {
             >
               <a
                 class="flex items-center text-black no-underline hover:underline"
-                href="#"
+                
               >
                 <p class="ml-2 text-sm">Room Number: {{ file.room_number }}</p>
               </a>
               <a
                 class="no-underline text-grey-darker hover:text-red-dark"
-                href="#"
+                
               >
                 <span class="hidden">Like</span>
                 <i class="fa fa-heart"></i>
