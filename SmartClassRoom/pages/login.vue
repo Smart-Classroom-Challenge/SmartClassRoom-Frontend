@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { useStore } from '~/stores/user'
 import { useRouter } from 'vue-router'
-
+const { $router } = useNuxtApp();
 const store = useStore()
 const router = useRouter()
 const token = useCookie("jwt_token");
@@ -27,9 +27,7 @@ async function signin(email, password) {
   store.set_jwt = data.access;
   store.set_rjwt = data.refresh;
   debugger
-  if (store.set_jwt) {
-    window.location.href = 'http://localhost:3000';
-  }
+  $router.push('/')
 }
 </script>
 
