@@ -76,7 +76,7 @@ export default {
                 <img
                   alt="Placeholder"
                   class="block w-full h-auto"
-                  src="https://picsum.photos/600/400/?random"
+                  src="https://picsum.photos/600/400?random=9999"
                 >
               </a>
 
@@ -128,7 +128,7 @@ export default {
                 <img
                   alt="Placeholder"
                   class="block w-full h-auto"
-                  src="https://picsum.photos/600/400/?random"
+                  :src="`https://picsum.photos/600/400?random=${file.id}`"
                 >
               </a>
 
