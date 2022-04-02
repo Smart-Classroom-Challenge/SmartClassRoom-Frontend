@@ -45,7 +45,7 @@ onMounted(() => {
     check_jwt(localStorage.getItem('django_jwt'))
 })
 router.beforeEach((to, from) => {
-  if (to.fullPath.startsWith('/MeasurementStations/')) {
+  if (to.fullPath.startsWith('/classrooms/')) {
     store.Classrooms = false
     store.Measurements = true
   }
