@@ -99,7 +99,7 @@ export default defineConfig({
       manifest: {
         name: 'Smartclassroom',
         short_name: 'SClassroom',
-        theme_color: '#ffffff',
+        theme_color: '#000000',
         icons: [
           {
             src: '/pwa-192x192.png',
