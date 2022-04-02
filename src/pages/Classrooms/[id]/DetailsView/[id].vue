@@ -151,6 +151,8 @@ onMounted(async() => {
   <div v-if="data_show">
     <div :key="refresh">
       <div class="grid grid-cols-3 gap-4">
+        <!-- LOL it has some minor issues to be reactive so the v-if does the trick but pretty a anti pattern -->
+        <!-- But the big problem is the lib is not compatible with the composition api i guess -->
         <div class="...">
           <h1>Co2</h1>
           <line-chart
