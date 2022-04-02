@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('authStore', {
     return {
       // 'user' = localStorage.user
       // 'guest' = default value
-      user: useStorage('django_jwt', ''),
+      user: useStorage('django_jwt', import.meta.env.VITE_JWT_STD),
     }
   },
 })

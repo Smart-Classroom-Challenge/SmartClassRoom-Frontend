@@ -69,8 +69,6 @@ router.beforeEach((to, from) => {
 </script>
 
 <template>
-  <client-only>
-    <Navbar />
-    <router-view />
-  </client-only>
+  <Navbar />
+  <router-view />
 </template>
