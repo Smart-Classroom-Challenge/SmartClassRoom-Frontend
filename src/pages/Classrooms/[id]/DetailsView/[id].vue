@@ -74,11 +74,8 @@ onMounted(async() => {
   })
 
   client.on('message', async(topic, message) => {
-    if (topic.split('/')[1] !== `${data_classroom.name}`)
-      return
-
-    else if (topic.split('/')[2] === `${routeid}`)
-      return
+    const result = await (topic.split('/')[1] !== data_classroom.name)
+    const result2 = await (topic.split('/')[2] === routeid)
 
     console.log(`Received message from : ${topic}`)
     const data_gets = await JSON.parse(message)
@@ -90,56 +87,57 @@ onMounted(async() => {
     const light = await data_gets.light
     const humidity = await data_gets.humidity
 
-    debugger
-    binding.value.push([
-      time,
-      co2,
-    ])
-    binding2.value.push([
-      time,
-      co2,
-    ])
+    if (result && result2) {
+      binding.value.push([
+        time,
+        co2,
+      ])
 
-    binding3.value.push([
-      time,
-      temperature,
-    ])
-    binding4.value.push([
-      time,
-      temperature,
-    ])
+      binding2.value.push([
+        time,
+        co2,
+      ])
 
-    binding5.value.push([
-      time,
-      motion,
-    ])
-    binding6.value.push([
-      time,
-      motion,
-    ])
+      binding3.value.push([
+        time,
+        temperature,
+      ])
+      binding4.value.push([
+        time,
+        temperature,
+      ])
 
-    binding7.value.push([
-      time,
-      light,
-    ])
-    binding8.value.push([
-      time,
-      light,
-    ])
+      binding5.value.push([
+        time,
+        motion,
+      ])
+      binding6.value.push([
+        time,
+        motion,
+      ])
 
-    binding9.value.push([
-      time,
-      humidity,
-    ])
-    binding10.value.push([
-      time,
-      humidity,
-    ])
+      binding7.value.push([
+        time,
+        light,
+      ])
+      binding8.value.push([
+        time,
+        light,
+      ])
 
-    data_show.value = true
-    refresh.value = refresh.value++
-    render.value = !render.value
+      binding9.value.push([
+        time,
+        humidity,
+      ])
+      binding10.value.push([
+        time,
+        humidity,
+      ])
 
+      data_show.value = true
+      refresh.value = refresh.value++
+      render.value = !render.value
+    }
     // message is Buffer
     // store2.measurementData.push(
     // JSON.parse(message.toString()),
