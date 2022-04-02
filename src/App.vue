@@ -11,9 +11,9 @@ const store = useStore()
 const authstore = useAuthStore()
 const router = useRouter()
 useHead({
-  title: 'Vitesse',
+  title: 'Smartclassroom',
   meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
+    { name: 'for FHNW Brugg', content: 'Made with love by Etienne Roulet' },
   ],
 })
 debugger
