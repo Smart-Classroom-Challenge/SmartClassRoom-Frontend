@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('authStore', {
     return {
       // 'user' = localStorage.user
       // 'guest' = default value
-      user: useStorage('django_jwt', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NTg0MzQ2LCJpYXQiOjE2NDg4MjQzNDYsImp0aSI6IjE1YjIwOTRhM2JlMzQ3NWZhM2ZhZDIwZmVjNzhhM2NlIiwidXNlcl9pZCI6MX0.qypkHBx_K8DIw76GHbYBDnG0ssxscinEv08wwDEDZn4'),
+      user: useStorage('django_jwt', ''),
     }
   },
 })
