@@ -18,7 +18,7 @@ async function signin(email, password) {
     }),
   })
   const data = await response.json()
-  debugger
+  
   useStorage('django_jwt', data.access)
   useStorage('django_jwt_refresh', data.refresh)
   authStore.user = data.access

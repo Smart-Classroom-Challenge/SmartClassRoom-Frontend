@@ -30,8 +30,6 @@ const path = router.currentRoute.value.fullPath
 const arg1 = path.split('/')[2]
 const arg2 = path.split('/')[4]
 
-debugger
-
 onMounted(async() => {
   const routeid = useRoute().params.id
   const store = useStore()
@@ -56,7 +54,6 @@ onMounted(async() => {
     },
   )
   const data_classroom = await response.json()
-  debugger
 
   let client: any
   if (store.base_url === 'http://localhost:8000')

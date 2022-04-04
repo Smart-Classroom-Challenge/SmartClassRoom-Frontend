@@ -16,7 +16,7 @@ useHead({
     { name: 'for FHNW Brugg', content: 'Made with love by Etienne Roulet' },
   ],
 })
-debugger
+
 function check_jwt(jwt: any) {
   api.getClassrooms(jwt)
     .then((response) => {

@@ -26,7 +26,7 @@ export default {
       data.results.forEach((doc) => {
         try {
           fetch(
-            `http://127.0.0.1:8000/api/ConnectionHistory/?fk_measurement_station=${doc.id}&filter_type=latest`,
+            `${store.base_url}/api/ConnectionHistory/?fk_measurement_station=${doc.id}&filter_type=latest`,
             {
               method: 'GET',
               headers: {
@@ -59,7 +59,6 @@ export default {
       })
     })
     onMounted(() => {
-      debugger
       getStations(useRoute().params.id)
     })
     function goTo(id) {

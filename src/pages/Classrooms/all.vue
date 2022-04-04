@@ -25,7 +25,7 @@ export default {
         const data = await response.json()
         data.results.forEach((doc) => {
           fetch(
-            `http://127.0.0.1:8000/api/ConnectionHistory/?fk_measurement_station=${doc.id}&filter_type=latest`,
+            `${store.base_url}/api/ConnectionHistory/?fk_measurement_station=${doc.id}&filter_type=latest`,
             {
               method: 'GET',
               headers: {
