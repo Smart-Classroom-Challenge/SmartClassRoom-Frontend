@@ -30,7 +30,7 @@ export default {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('django_jwt')}`,
+                'Authorization': `Bearer ${authstore.user}`,
               },
             },
           )
