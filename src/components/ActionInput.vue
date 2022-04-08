@@ -13,7 +13,7 @@ function create_classroom(Room_name, Room_desc, Room_number) {
       store.$state.shownotify = true
       store.show = false
     }).catch((err) => {
-      console.log(err)
+      alert(err)
     })
 }
 
@@ -57,9 +57,9 @@ function close_modal() {
             <input v-model="Room_number" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
           </div>
 
-          <div class="mt-6 ">
+          <div class="mt-6 " @click="create_classroom(Room_name, Room_desc, Room_number)">
             <button type="submit" class="flex items-center justify-center w-full px-6 py-2 text-sm font-medium text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none">
-              <span class="m-2 text-white" @click="create_classroom(Room_name, Room_desc, Room_number)">Add Classroom</span>
+              <span class="m-2 text-white">Add Classroom</span>
             </button>
           </div>
         </div>

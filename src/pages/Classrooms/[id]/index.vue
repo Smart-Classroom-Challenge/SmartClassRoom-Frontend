@@ -59,7 +59,12 @@ export default {
       })
     })
     onMounted(() => {
-      getStations(useRoute().params.id)
+      try {
+        getStations(useRoute().params.id)
+      }
+      catch (error) {
+        alert(error)
+      }
     })
     function goTo(id) {
       router.push(`DetailsView/${id}`)

@@ -6,23 +6,28 @@ const store = useStore()
 const authStore = useAuthStore()
 const router = useRouter()
 async function signin(email, password) {
-  const response = await fetch(`${store.base_url}/api/token/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify({
-      username: email,
-      password,
-    }),
-  })
-  const data = await response.json()
-  
-  useStorage('django_jwt', data.access)
-  useStorage('django_jwt_refresh', data.refresh)
-  authStore.user = data.access
-  router.push({ name: 'home' })
+  try {
+    const response = await fetch(`${store.base_url}/api/token/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        username: email,
+        password,
+      }),
+    })
+    const data = await response.json()
+
+    useStorage('django_jwt', data.access)
+    useStorage('django_jwt_refresh', data.refresh)
+    authStore.user = data.access
+    router.push({ name: 'home' })
+  }
+  catch (error) {
+    alert(error)
+  }
 }
 </script>
 

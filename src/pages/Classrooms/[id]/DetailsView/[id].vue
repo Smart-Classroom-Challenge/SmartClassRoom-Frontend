@@ -78,6 +78,9 @@ onMounted(async() => {
     const data_gets = await JSON.parse(message)
     show_data.push(data_gets)
     const time = await data_gets.time
+    const ts = new Date(time)
+    const timeS = ts.toLocaleTimeString()
+    debugger
     const co2 = await data_gets.co2
     const temperature = await data_gets.temperature
     const motion = await data_gets.motion
@@ -86,48 +89,48 @@ onMounted(async() => {
 
     if (result && result2) {
       binding.value.push([
-        time,
+        timeS,
         co2,
       ])
 
       binding2.value.push([
-        time,
+        timeS,
         co2,
       ])
 
       binding3.value.push([
-        time,
+        timeS,
         temperature,
       ])
       binding4.value.push([
-        time,
+        timeS,
         temperature,
       ])
 
       binding5.value.push([
-        time,
+        timeS,
         motion,
       ])
       binding6.value.push([
-        time,
+        timeS,
         motion,
       ])
 
       binding7.value.push([
-        time,
+        timeS,
         light,
       ])
       binding8.value.push([
-        time,
+        timeS,
         light,
       ])
 
       binding9.value.push([
-        time,
+        timeS,
         humidity,
       ])
       binding10.value.push([
-        time,
+        timeS,
         humidity,
       ])
 

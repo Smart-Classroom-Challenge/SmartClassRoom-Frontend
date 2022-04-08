@@ -31,7 +31,7 @@ export default {
                 useStorage('django_jwt', '')
                 router.push('/login')
               }
-              console.log(error.response.data.error)
+              alert(error.response.data.error)
             })
         }
       }
