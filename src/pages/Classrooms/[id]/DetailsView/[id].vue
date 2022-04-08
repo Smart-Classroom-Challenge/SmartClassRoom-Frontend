@@ -29,7 +29,7 @@ const router = useRouter()
 const path = router.currentRoute.value.fullPath
 const arg1 = path.split('/')[2]
 const arg2 = path.split('/')[4]
-
+let data_classroom: any
 onMounted(async() => {
   const routeid = useRoute().params.id
   const store = useStore()
@@ -42,18 +42,25 @@ onMounted(async() => {
     username: '8e0v0tanDPfBzeKkuasrarRQUKwN0WQW0EiPXg2oV6NiaossmIKmXp2HYnlO9ZAZ',
     password: '',
   }
-
-  const response = await fetch(
-    `${store.base_url}/api/Classrooms/1`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authstore.user}`,
+  if (arg1 !== 'all') {
+    const response = await fetch(
+      `${store.base_url}/api/Classrooms/${arg1}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authstore.user}`,
+        },
       },
-    },
-  )
-  const data_classroom = await response.json()
+    )
+    data_classroom = await response.json()
+  }
+  else {
+    data_classroom = {
+      id: 'all',
+      name: '+',
+    }
+  }
 
   let client: any
   if (store.base_url === 'http://localhost:8000')
@@ -63,11 +70,15 @@ onMounted(async() => {
     client = mqtt.connect('wss://mqtt.flespi.io:443', options)
 
   await client.on('connect', () => {
-    console.log('Connected to : ' + `fhnw/${data_classroom.name}/${routeid}/measurement`)
-    client.subscribe('fhnw/+/+/measurement', (err) => {
-      if (!err)
-        console.log('Subscribed')
-    })
+    if (data_classroom) {
+      console.log('Connected to : ' + `fhnw/${data_classroom.name}/${routeid}/measurement`)
+      client.subscribe(`fhnw/${data_classroom.name}/${routeid}/measurement`, (err) => {
+        if (!err)
+          console.log('Subscribed')
+        if (err)
+          alert(err)
+      })
+    }
   })
 
   client.on('message', async(topic, message) => {
