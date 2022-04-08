@@ -23,7 +23,6 @@ function check_jwt(jwt: any) {
       return response.data
     })
     .then((data) => {
-      console.log(data)
       store.clasrooms_saved = data.results
     })
     .catch((error) => {

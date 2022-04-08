@@ -41,13 +41,13 @@ export default {
               stations.push(doc)
             }).catch((err) => {
               stations.push(doc)
-			  console.log(err)
+              alert(err)
             })
         })
       }
       catch (err) {
         // catches errors both in fetch and response.json
-        console.log(err)
+        alert(err)
       }
     }
 
@@ -96,22 +96,25 @@ export default {
               <img
                 alt="Placeholder"
                 class="block w-full h-auto"
-                :src="`https://picsum.photos/600/400?random=${file.id +100}`"
+                :src="`https://picsum.photos/600/400?random=${file.id + 100}`"
               >
             </a>
 
             <header class="flex items-center justify-between p-2 leading-tight md:p-4">
               <h1 class="text-lg">
-                <a class=" no-underline hover:underline">{{ file.name }}</a>
+                <a class="no-underline hover:underline">{{ file.name }}</a>
               </h1>
               <p class="text-sm text-grey-darker">
                 id: {{ file.id }}
               </p>
             </header>
 
-            <header v-if="file.details" class="flex items-center justify-between p-2 leading-tight md:p-4">
+            <header
+              v-if="file.details"
+              class="flex items-center justify-between p-2 leading-tight md:p-4"
+            >
               <h2 class="text-lg">
-                <a class=" no-underline hover:underline">IP Adresse: {{ file.details.ip_address }}</a>
+                <a class="no-underline hover:underline">IP Adresse: {{ file.details.ip_address }}</a>
               </h2>
             </header>
             <div v-if="file.details" class="pl-10 text-left">
@@ -131,7 +134,7 @@ export default {
               <p>ping_grafana: {{ file.details.ping_grafana }}</p>
             </div>
             <footer class="flex items-center justify-between p-2 leading-none md:p-4">
-              <a class="flex items-center  no-underline hover:underline">
+              <a class="flex items-center no-underline hover:underline">
                 <p class="ml-2 text-sm">Room Number: {{ file.fk_classroom }}</p>
               </a>
               <a class="no-underline text-grey-darker hover:text-red-dark">

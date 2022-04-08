@@ -41,7 +41,7 @@ export default {
 
               stations.push(doc)
             }).catch((err) => {
-              console.log(err)
+              alert(err)
               stations.push(doc)
             })
         }

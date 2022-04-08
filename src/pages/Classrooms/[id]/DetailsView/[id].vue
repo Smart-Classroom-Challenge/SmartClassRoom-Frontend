@@ -71,12 +71,12 @@ onMounted(async() => {
 
   await client.on('connect', () => {
     if (data_classroom) {
-      console.log('Connected to : ' + `fhnw/${data_classroom.name}/${routeid}/measurement`)
       client.subscribe(`fhnw/${data_classroom.name}/${routeid}/measurement`, (err) => {
-        if (!err)
-          console.log('Subscribed')
-        if (err)
-          alert(err)
+        if (!err) {
+          console.log('Subscribed to : ' + `fhnw/${data_classroom.name}/${routeid}/measurement`)
+          if (err)
+            alert(err)
+        }
       })
     }
   })
@@ -91,7 +91,6 @@ onMounted(async() => {
     const time = await data_gets.time
     const ts = new Date(time)
     const timeS = ts.toLocaleTimeString()
-    debugger
     const co2 = await data_gets.co2
     const temperature = await data_gets.temperature
     const motion = await data_gets.motion

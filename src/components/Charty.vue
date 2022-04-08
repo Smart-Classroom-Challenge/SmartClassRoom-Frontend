@@ -21,7 +21,6 @@ const refresh = ref(0)
 const data = ref([])
 const render = ref(true)
 store2.$subscribe((mutation, state) => {
-  console.log(mutation)
   binding.value.push([
     mutation.events[0].newValue.time,
     mutation.events[0].newValue.co2,
