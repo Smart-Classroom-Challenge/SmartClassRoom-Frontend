@@ -82,8 +82,7 @@ onMounted(async() => {
   })
 
   client.on('message', async(topic, message) => {
-    const result = await (topic.split('/')[1] !== data_classroom.name)
-    const result2 = await (topic.split('/')[2] === routeid)
+    debugger
 
     console.log(`Received message from : ${topic}`)
     const data_gets = await JSON.parse(message)
@@ -97,57 +96,56 @@ onMounted(async() => {
     const light = await data_gets.light
     const humidity = await data_gets.humidity
 
-    if (result && result2) {
-      binding.value.push([
-        timeS,
-        co2,
-      ])
+    binding.value.push([
+      timeS,
+      co2,
+    ])
 
-      binding2.value.push([
-        timeS,
-        co2,
-      ])
+    binding2.value.push([
+      timeS,
+      co2,
+    ])
 
-      binding3.value.push([
-        timeS,
-        temperature,
-      ])
-      binding4.value.push([
-        timeS,
-        temperature,
-      ])
+    binding3.value.push([
+      timeS,
+      temperature,
+    ])
+    binding4.value.push([
+      timeS,
+      temperature,
+    ])
 
-      binding5.value.push([
-        timeS,
-        motion,
-      ])
-      binding6.value.push([
-        timeS,
-        motion,
-      ])
+    binding5.value.push([
+      timeS,
+      motion,
+    ])
+    binding6.value.push([
+      timeS,
+      motion,
+    ])
 
-      binding7.value.push([
-        timeS,
-        light,
-      ])
-      binding8.value.push([
-        timeS,
-        light,
-      ])
+    binding7.value.push([
+      timeS,
+      light,
+    ])
+    binding8.value.push([
+      timeS,
+      light,
+    ])
 
-      binding9.value.push([
-        timeS,
-        humidity,
-      ])
-      binding10.value.push([
-        timeS,
-        humidity,
-      ])
+    binding9.value.push([
+      timeS,
+      humidity,
+    ])
+    binding10.value.push([
+      timeS,
+      humidity,
+    ])
 
-      data_show.value = true
-      refresh.value = refresh.value++
-      render.value = !render.value
-    }
+    data_show.value = true
+    refresh.value = refresh.value++
+    render.value = !render.value
+
     // message is Buffer
     // store2.measurementData.push(
     // JSON.parse(message.toString()),
