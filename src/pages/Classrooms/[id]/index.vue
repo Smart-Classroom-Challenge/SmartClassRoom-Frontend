@@ -127,12 +127,11 @@ export default {
               </h2>
 
               <h2 class="text-lg">
-                <a v-if="file.details" class=" no-underline hover:underline">
-                  Bluethooth Status : {{ file.details.bluetooth_connected }}
-                </a>
+                <a v-if="file.details" class=" no-underline hover:underline" />
               </h2>
             </header>
             <div v-if="file.details" class="pl-10 text-left">
+              <p>Bluethooth Status : {{ file.details.bluetooth_connected }}</p>
               <p class="text-md text-grey-darker">
                 ping_backend: {{ file.details.ping_backend }}
               </p>
