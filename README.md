@@ -2,6 +2,12 @@
 
 ### Development
 
+Install all dependencies with
+
+```bash
+pnpm i
+```
+
 Just run and visit http://localhost:3333
 
 ```bash
